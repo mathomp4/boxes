@@ -19,7 +19,6 @@
 
 
 CC         = gcc
-CPP        = cpp
 
 OUT_DIR    = ../out
 SRC_DIR    = ../src
