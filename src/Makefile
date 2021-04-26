@@ -86,7 +86,6 @@ flags_:
 
 parser.c parser.h: parser.y lex.yy.h | check_dir
 	$(YACC) --warnings=all --verbose --defines=parser.h --output=parser.c $<
-	$(CPP) -I. -I$(SRC_DIR) -P parser.c parser.p
 
 lex.yy.c lex.yy.h: lexer.l | check_dir
 	$(LEX) --header-file=lex.yy.h $<
