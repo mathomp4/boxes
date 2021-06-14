@@ -21,7 +21,7 @@
 # The following line (GLOBALCONF) is the only line you should need to edit!
 GLOBALCONF = /usr/share/boxes
 GIT_STATUS = $(shell git describe --dirty --always 2>/dev/null || echo "n/a")
-BVERSION   = 2.1.0
+BVERSION   = 2.1.1
 
 ALL_FILES  = LICENSE README.md boxes-config
 DOC_FILES  = doc/boxes.1 doc/boxes.el
@@ -68,7 +68,7 @@ win32.prereq:
 
 infomsg:
 	@echo "| For compilation info please refer to the boxes compilation FAQ"
-	@echo "| at https://boxes.thomasjensen.com/docs/faq.html#q5"
+	@echo "| at https://boxes.thomasjensen.com/faq.html#q5"
 
 $(OUT_DIR):
 	mkdir $(OUT_DIR)
@@ -84,7 +84,7 @@ doc/boxes.1: doc/boxes.1.in Makefile
 
 doc/boxes.1.html: doc/boxes.1
 	cat doc/boxes.1 | groff -mandoc -Thtml > doc/boxes.1.raw.html
-	sed -E -e 's/&lt;URL:([^&]+)&gt;/<a href=\1>\1<\/a>/g' < doc/boxes.1.raw.html > doc/boxes.1.html
+	sed -E -e 's/&lt;URL:([^&]+)&gt;/<a href="\1">\1<\/a>/g' < doc/boxes.1.raw.html > doc/boxes.1.html
 	rm -f doc/boxes.1.raw.html
 	@echo "Conversion complete. Excessive manual work remains."
 
